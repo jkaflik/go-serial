@@ -165,6 +165,8 @@ const (
 	PortClosed
 	// FunctionNotImplemented the requested function is not implemented
 	FunctionNotImplemented
+	// ReadTimeout the read operation timed out
+	ReadTimeout
 )
 
 // EncodedErrorString returns a string explaining the error code
@@ -192,6 +194,8 @@ func (e PortError) EncodedErrorString() string {
 		return "Could not enumerate serial ports"
 	case PortClosed:
 		return "Port has been closed"
+	case ReadTimeout:
+		return "Read timeout"
 	case FunctionNotImplemented:
 		return "Function not implemented"
 	default:
